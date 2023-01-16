@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>The Drum Kit</title>
+	<style>
+        body {
+	text-align: center;
+	background-color: #a06060;
+}
+
+h1 {
+	font-size: 5rem;
+	color: #DBEDF3;
+	font-family: cursive;
+	text-shadow: 3px 0 #DA0463;
+}
+
+.w {
+	background-image: url("images/w.png");
+}
+
+.a {
+	background-image: url("images/a.png");
+}
+
+.s {
+	background-image: url("images/s.png");
+}
+
+.d {
+	background-image: url("images/d.png");
+}
+
+.j {
+	background-image: url("images/j.png");
+}
+
+.k {
+	background-image: url("images/k.png");
+}
+
+.l {
+	background-image: url("images/l.png");
+}
+
+.all {
+	margin: 10% auto;
+}
+
+.animation {
+	box-shadow: 0 3px 4px 0 #DBEDF3;
+	opacity: 0.5;
+}
+
+.button {
+	outline: none;
+	border: 10px solid #404B69;
+	font-size: 5rem;
+	font-family: 'Arvo', cursive;
+	line-height: 2;
+	font-weight: 900;
+	color: #DA0463;
+	text-shadow: 3px 0 #DBEDF3;
+	border-radius: 15px;
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	margin: 10px;
+	background-color: white;
+}
+
+    </style>
+</head>
+
+<body>
+	<h1>The Drum Kit</h1>
+
+	<div class="all">
+		<button class="w button">w</button>
+		<button class="a button">a</button>
+		<button class="s button">s</button>
+		<button class="d button">d</button>
+		<button class="j button">j</button>
+		<button class="k button">k</button>
+		<button class="l button">l</button>
+	</div>
+    <script>
+    var numberOfButtons =
+	document.querySelectorAll(".button").length;
+
+for (var j = 0; j < numberOfButtons; j++) {
+
+document.querySelectorAll(".button")[j]
+.addEventListener("click", function() {
+
+	var buttonStyle = this.innerHTML;
+	sound(buttonStyle);
+	animation(buttonStyle);
+});
+}
+
+document.addEventListener("keypress", function(event) {
+sound(event.key);
+animation(event.key);
+});
+
+function sound(key) {
+switch (key) {
+	case "w":
+	var sound1 = new Audio("mixkit-fast-small-sweep-transition-166.mp3");
+	sound1.play();
+	break;
+
+	case "a":
+	var sound2 = new Audio("mixkit-fast-small-sweep-transition-166.mp3");
+	sound2.play();
+	break;
+
+	case "s":
+	var sound3 = new Audio('mixkit-fast-small-sweep-transition-166.mp3');
+	sound3.play();
+	break;
+
+	case "d":
+	var sound4 = new Audio('mixkit-fast-small-sweep-transition-166.mp3');
+	sound4.play();
+	break;
+
+	case "j":
+	var sound5 = new Audio('mixkit-fast-small-sweep-transition-166.mp3');
+	sound5.play();
+	break;
+
+	case "k":
+	var sound6 = new Audio('mixkit-fast-small-sweep-transition-166.mp3');
+	sound6.play();
+	break;
+
+	case "l":
+	var sound7 = new Audio('mixkit-fast-small-sweep-transition-166.mp3');
+	sound7.play();
+	break;
+
+	default: console.log(key);
+}
+}
+
+function animation(currentKey) {
+var activeButton = document.querySelector("." + currentKey);
+activeButton.classList.add("animation");
+
+setTimeout(function() {
+	activeButton.classList.remove("animation");
+}, 100);
+}
+
+
+    </script>
+</body>
+
+</html>
