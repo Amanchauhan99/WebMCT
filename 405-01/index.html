@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="im.js"></script>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* border: 2px solid red; */
+}
+
+.maincontainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.maincontainerupperdiv {
+    width: 98%;
+    height: 20%;
+    background-color: #edefef;
+    /* border: 2px solid red; */
+    box-shadow: inset 0px 0px 2px;
+}
+
+.maincontainerupperdivupper {
+    width: 100%;
+    height: 60%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.maincontainerupperdivlower {
+    width: 100%;
+    height: 40%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.maincontainermiddlediv {
+    width: 98%;
+    height: 10%;
+    /* border: 2px solid red; */
+    background-color: #f2f2f2;
+}
+
+.maincontainermiddledivlower,
+.maincontainermiddledivupper {
+    width: 100%;
+    height: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonn {
+    margin-left: 1rem;
+    width: 10%;
+    height: 80%;
+    border: none;
+}
+
+.maincontainerlowerdiv {
+    width: 98%;
+    height: 65%;
+    /* border: 2px solid red; */
+    background-color: #eeefef;
+    box-shadow: 0px 0px 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 100%;
+    height: 10%;
+    /* border: 2px solid red; */
+    display: flex;
+}
+
+.namediv {
+    width: 25%;
+    height: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphdiv {
+    width: 50%;
+    height: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+.totalpopulationsdiv {
+    width: 25%;
+    height: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+h1 {
+    color: #f2a93b;
+}
+    </style>
+</head>
+
+<body>
+    <div class="maincontainer">
+        <div class="maincontainerupperdiv">
+            <div class="maincontainerupperdivupper">
+                <h1>World countries data</h1>
+            </div>
+            <div class="maincontainerupperdivlower">
+                <h4 id="currentcountrylength"></h4>
+            </div>
+        </div>
+        <div class="maincontainermiddlediv">
+            <div class="maincontainermiddledivupper">
+                <button class="buttonn" style="background-color: #f2a93b;" onclick="getpopulations()">POPULATION</button>
+                <button class="buttonn" style="background-color: #f2a93b;" onclick="getlanguage()">LANGUAGE</button>
+            </div>
+            <div class="maincontainermiddledivlower">
+                <h4 id="para"></h4>
+            </div>
+        </div>
+        <div class="maincontainerlowerdiv" id="maincontainerlowerdiv">
+
+        </div>
+    </div>
+    <script>
+        const currentcountrylength = document.getElementById("currentcountrylength")
+currentcountrylength.innerText = `Currently, we have ${countries_data.length} countries`;
+
+function getpopulations() {
+    const maincontainerlowerdiv = document.getElementById("maincontainerlowerdiv")
+    maincontainerlowerdiv.innerHTML = ""
+
+
+    var totalpopulation = 0;
+    countries_data.map((ele) => {
+            totalpopulation += ele.population
+        })
+        // console.log(totalpopulation);
+    countries_data.sort(function(a, b) {
+        return b.population - a.population
+    })
+    maincontainerlowerdiv.innerHTML += `
+        <div class="card" >
+            <div class="namediv">${"world"}</div>
+            <div class="graphdiv">
+                <div class="graphdivcolor" style="width: ${100}%; height: 80%; background-color: #f2a93b;">
+                </div>
+            </div>
+            <div class="totalpopulationsdiv">${totalpopulation}</div>
+        </div>`
+    for (let i = 0; i < 10; i++) {
+        var perecentage = (countries_data[i].population * 100) / totalpopulation
+        console.log(perecentage);
+        maincontainerlowerdiv.innerHTML += `
+        <div class="card" >
+            <div class="namediv">${countries_data[i].name}</div>
+            <div class="graphdiv">
+                <div class="graphdivcolor" style="width: ${perecentage}%; height: 80%; background-color: #f2a93b;">
+                </div>
+            </div>
+            <div class="totalpopulationsdiv">${countries_data[i].population}</div>
+        </div>`
+            // console.log(countries_data[i].name);
+
+    }
+    const para = document.getElementById("para")
+    para.innerText = "10 most populated countries in the world"
+}
+
+function getlanguage() {
+    const maincontainerlowerdiv = document.getElementById("maincontainerlowerdiv")
+    maincontainerlowerdiv.innerHTML = ""
+
+    const arroflanguages = []
+    for (let i = 0; i < countries_data.length; i++) {
+        arroflanguages[i] = countries_data[i].languages
+            // console.log(arroflanguages[i]);
+    }
+    const flatarroflanguage = arroflanguages.flat();
+    // console.log(flatarroflanguage);
+    const objofflatarroflanguage = {}
+    flatarroflanguage.map((ele) => {
+            objofflatarroflanguage[ele] = (objofflatarroflanguage[ele] || 0) + 1
+        })
+        // console.log(objofflatarroflanguage);
+    const objArr = Object.entries(objofflatarroflanguage)
+        // console.log(objArr);
+        // objArr.sort((a,b)=>{
+        //     return b[1]-a[1]
+        // })
+    objArr.sort(function(a, b) {
+            return b[1] - a[1]
+        })
+        // console.log(objArr);
+
+    var totallanguage = 0;
+    objArr.map((ele) => {
+            totallanguage += ele[1]
+        })
+        // console.log(totallanguage);
+
+    for (let i = 0; i < 10; i++) {
+        var perecentage = (objArr[i][1] * 100) / totallanguage
+        console.log(perecentage);
+        maincontainerlowerdiv.innerHTML += `
+        <div class="card" >
+            <div class="namediv">${objArr[i][0]}</div>
+            <div class="graphdiv">
+                <div class="graphdivcolor" style="width: ${perecentage}%; height: 80%; background-color: #f2a93b;">
+                </div>
+            </div>
+            <div class="totalpopulationsdiv">${objArr[i][1]}</div>
+        </div>`
+            // console.log(countries_data[i].name);
+
+    }
+    const para = document.getElementById("para")
+    para.innerText = "10 most spoken languages in the world"
+}
+    </script>
+</body>
+
+</html>
