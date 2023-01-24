@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nidhi</title>
+
+    <style>
+
+        .container {
+
+            height: fit-content;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+
+            flex-direction: column;
+
+        }
+
+
+
+
+        button {
+
+            margin-top: 10px;
+
+            border: none;
+
+            box-shadow: 0px 0px 5px 1px grey;
+
+            color: rgb(34, 44, 44);
+
+            background-color: rgb(254, 254, 255);
+
+            padding: 5px;
+
+            font-size: 10px;
+
+            border-radius: 10px;
+
+        }
+
+
+
+
+        #delete {
+
+            border: 1px solid red;
+
+            color: red;
+
+            box-shadow: none;
+
+            border-radius: 2px;
+
+            padding: 3px;
+
+            cursor: pointer;
+
+        }
+
+
+
+
+        .card {
+
+            width: 70%;
+
+        }
+
+
+
+
+        #list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            list-style: decimal-leading-zero;
+
+        }
+
+
+
+
+        #list li {
+
+            width: 50%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+    </style>
+
+</head>
+
+
+
+
+<body>
+
+    <div class="container">
+
+        <input id="nitin" type="text" placeholder="Enter Name Of Item">
+
+        <button onclick="Additems()">Add Items</button>
+
+        <h1 id="h1" style="color:blue">List Items</h1>
+
+        <div class="card">
+
+            <ul id="list">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let count = 1;
+
+
+
+
+        function Additems() {
+
+            var text = document.getElementById('nitin')
+
+            let list = document.createElement('li');
+
+            list.setAttribute("class", `item${count}`)
+
+            let btn = document.createElement('button');
+
+            list.innerHTML = `<h4> ${text.value}</h4><button class="item${count}">Delete</button>`
+
+            let parentList = document.getElementById("list");
+
+            let dataList = [];
+
+            if (text.value === "") {
+
+                alert("Enter valid List item")
+
+            } else {
+
+
+
+
+
+
+
+                parentList.appendChild(list);
+
+
+
+
+                let dltbtn = document.getElementsByClassName(`item${count}`);
+
+                dltbtn[0].addEventListener("click", (e) => {
+
+
+
+
+                    e.path[1].remove();
+
+
+
+
+                })
+
+                text.value = "";
+
+            }
+
+            count++;
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+
+
+
+</html>
