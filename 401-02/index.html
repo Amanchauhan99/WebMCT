@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401-02</title>
+    <style>
+        .items {
+            width: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 0 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="items">
+        <ul id="items">
+        </ul>
+    </div>
+    <script>
+        let list = document.getElementById('items');
+        for (let i = 1; i <= 19; i++) {
+            li = document.createElement('li');
+            liEle = list.appendChild(li);
+            liEleText = document.createTextNode(`Child ${i}`);
+            finalItem = liEle.appendChild(liEleText);
+
+            if (i == 1) {
+                li.style.backgroundColor = 'blue';
+            }
+            if (i == 9) {
+                li.style.backgroundColor = 'green';
+            }
+            if (i == 19) {
+                li.style.backgroundColor = 'palevioletred';
+            }
+            if (i % 2 == 0) {
+                li.style.backgroundColor = 'lime';
+            }
+
+        }
+    </script>
+</body>
+
+</html>
