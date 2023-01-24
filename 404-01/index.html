@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight calculator</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: radial-gradient(rgb(10, 10, 120), rgb(55, 55, 165), black, rgb(88, 87, 87), black, black, rgb(6, 6, 93));
+}
+
+.inputTag {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.innerinputs {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: rgba(158, 149, 149, 0.589); */
+    justify-content: space-around;
+}
+
+.card {
+    height: 55%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innercard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(2, 2, 2);
+    color: white;
+}
+
+.innercard div {
+    height: 30%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(139, 134, 134, 0.3);
+    color: white;
+}
+
+.innercard h3 {
+    border-radius: 50%;
+    height: 50%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(139, 134, 134, 0.4);
+    color: white;
+}
+
+#text {
+    height: 25%;
+    width: 40%;
+    font-size: larger;
+    border-radius: 10px;
+    padding: 1%;
+    border: none;
+}
+
+button {
+    background-color: blue;
+    color: aliceblue;
+    height: 30%;
+    width: 40%;
+    font-size: larger;
+    border-radius: 10px;
+}
+
+#planet {
+    padding: 7px;
+    border-radius: 5px;
+}
+
+#planet:hover {
+    border-radius: 5px;
+    padding: 7px;
+    border: 2px solid grey;
+}
+
+@media screen and (max-width:768px) {
+    .innercard {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        background-color: rgb(8, 8, 8);
+        color: rgb(20, 19, 19);
+    }
+    .innercard img {
+        height: 90%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        background-color: rgb(3, 3, 3);
+        color: rgb(20, 19, 19);
+    }
+    .innercard div {
+        height: 25%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: rgba(7, 7, 7, 0.3);
+        color: white;
+    }
+    .innercard h3 {
+        height: 50%;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: rgb(139, 134, 134, 0.4);
+        color: white;
+    }
+    button {
+        background-color: blue;
+        color: aliceblue;
+        height: 30%;
+        width: 80%;
+        font-size: larger;
+        border-radius: 10px;
+    }
+    #text {
+        height: 25%;
+        width: 90%;
+        font-size: larger;
+        border-radius: 10px;
+        padding: 1%;
+        border: none;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <h1 style="color: white;">Weight Calculator</h1>
+    <div class="inputTag">
+        <div class="innerinputs">
+            <input id="text" type="number" placeholder="Enter Your Weight">
+            <select name="Planets" id="planet">
+                <option disabled selected>--Select Planet--</option>
+            </select>
+            <button onclick="hello()">Calculate</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="innercard">
+            <h3>Enter Your Weight First</h3>
+        </div>
+
+    </div>
+
+    <script>
+        planets = [
+    { name: "Earth", value: 0, value1: 1, add: "https://cdn.mos.cms.futurecdn.net/yCPyoZDQBBcXikqxkeW2jJ-1200-80.jpg" },
+    { name: "Mercury", value: 1, value1: 3.61, add: "https://cdn.britannica.com/05/110305-050-42CA686B/Mercury-Wide-Angle-Messenger-probe-hemisphere-image-Jan-14-2008.jpg" },
+    { name: "Venus", value: 2, value1: 8.83, add: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202211/venus_atmosphere-one_one.jpg?VersionId=mujpjOnQ9mwaWpRpwrFAUmCcZHubnjem" },
+    { name: "Mars", value: 3, value1: 3.75, add: "https://solarsystem.nasa.gov/internal_resources/3841" },
+    { name: "Jupiter", value: 4, value1: 26, add: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Jupiter%27s_swirling_colourful_clouds.jpg" },
+    { name: "Satern", value: 5, value1: 11.2, add: "https://images.lifestyleasia.com/wp-content/uploads/sites/7/2022/06/03164628/nasa-2W-QWAC0mzI-unsplash-2.jpg?tr=w-1200,h-900" },
+    { name: 'Uranus', value: 6, value1: 10.5, add: "https://www.techexplorist.com/wp-content/uploads/2020/04/uranus.jpg" },
+    { name: 'Naptune', value: 7, value1: 13.3, add: "https://images.immediate.co.uk/production/volatile/sites/25/2019/10/Neptune-full-disc-dd021b2.jpg" },
+    { name: 'Pluto', value: 8, value1: 0.61, add: "https://cdn.mos.cms.futurecdn.net/DoZSMXF87kCuzbymsuEFHo.jpg" },
+    { name: 'moon', value: 9, value1: 1.625, add: "https://i.natgeofe.com/k/082b37d7-d83c-4033-886e-b081fa4fa0f2/moon_4x3.jpg" },
+    { name: 'sun', value: 10, value1: 28.2, add: "https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/07/SolarFull_SeanDoran_2880FullwidthLede.jpg" },
+]
+planets.map((e) => {
+    let ele = document.getElementById('planet');
+    let opt = document.createElement('option');
+    opt.setAttribute("value", e.value);
+    opt.innerText = `${e.name}`
+    ele.appendChild(opt);
+    //   console.log(e.add);
+})
+
+let city = "";
+document.getElementById('planet').addEventListener('change', (showCity) => {
+    city = showCity.target.value;
+    let text = document.getElementById('text')
+
+    // console.log(city);
+})
+
+
+
+function hello() {
+    // console.log(text.innerText); 
+    if (text.value != "") {
+        console.log(planets[Number(city)].add);
+        let ans = planets[Number(city)].value1 + Number(text.value)
+        document.getElementsByClassName("card")[0].innerHTML = `<div class="innercard"><img src="${planets[Number(city)].add}" alt="" height="250px" width="250px">
+            <div><p>Your Weight On planet : ${planets[Number(city)].name}</p>
+            <h3> ${ans} kg</h3></div></div>`
+    } else {
+        document.getElementsByClassName("card")[0].innerHTML = `<div class="innercard">Enter Ur weight First</div>`
+
+
+    }
+
+}
+    </script>
+</body>
+
+</html>
