@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 403-01</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(118, 181, 244) 50%, rgb(37, 38, 39) 50%);
+}
+
+#card {
+    height: 30%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: aliceblue;
+    background-color: rgb(18, 42, 79);
+    border-radius: 10px;
+}
+
+h2 {
+    color: rgb(219, 166, 255);
+}
+
+.two {
+    font-weight: bolder;
+    color: rgb(255, 255, 255)
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="card">
+            <h2>Press Any To Get Started</h2>
+
+        </div>
+    </div>
+    <script>
+        window.addEventListener('keydown', (e) => {
+            document.getElementById('card').innerHTML = `<p class="one">You Pressed:</p>
+            <h2>Key:- ${e.key}</h2>
+            <p class="two">Key Code: ${e.keyCode}</p>`
+        })
+    </script>
+
+</body>
+
+</html>
