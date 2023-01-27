@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation 409-01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="inputs">
+            <fieldset>
+                <legend>Name:</legend>
+                <input onkeyup="hello()" type="text" id="fname" name="fname">
+                <p id="parag0" class="parag"></p>
+            </fieldset>
+            <fieldset>
+                <legend>Email:</legend>
+                <input onkeyup="hello1()" type="email" id="email" name="email">
+                <p class="parag" id="parag1"></p>
+            </fieldset>
+            <fieldset>
+                <legend>Phone Number:</legend>
+                <input onkeyup="hello2()" type="number" id="Mnumber" name="number">
+                <p class="parag" id="parag2"></p>
+            </fieldset>
+            <fieldset>
+                <legend>Password:</legend>
+                <input onkeyup="hello3()" type="password" id="password" name="password">
+                <p class="parag" id="parag3"></p>
+            </fieldset>
+            <fieldset>
+                <legend>Bio:</legend>
+                <input onkeyup="hello4()" type="text" id="bio" name="bio">
+                <p class="parag" id="parag4"></p>
+            </fieldset>
+            <button>Submit</button>
+            </fieldset>
+        </div>
+        <script src="script.js"></script>
+
+
+</body>
+
+</html>
