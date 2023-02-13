@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+.maincontainer {
+    width: 98%;
+    height: 100%;
+    /* border: 2px solid red; */
+}
+
+.maincontainerfixed {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    /* position: fixed; */
+}
+
+.maincontainerupper {
+    width: 100%;
+    height: 50%;
+    /* border: 2px solid red; */
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+}
+
+.maincontainermiddle {
+    width: 100%;
+    height: 50%;
+    /* border: 2px solid red; */
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+}
+
+.inputemojeename {
+    width: 20%;
+    height: 30%;
+    margin-right: 1rem;
+    /* border: 2px solid red; */
+}
+
+button {
+    width: 5%;
+    height: 30%;
+}
+
+h1 {
+    color: white;
+}
+
+.maincontainerlower {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    overflow-y: scroll;
+}
+
+.tablerow {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 1rem;
+    border-bottom: .5px solid white;
+}
+
+.emojiIcon {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.emojiTags {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    /* border: 2px solid red; */
+}
+
+.emojiname {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    /* border: 2px solid red; */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
