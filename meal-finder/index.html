@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.header-bottom,
+.header-mid,
+.header-top {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-top {
+  align-items: flex-end;
+}
+
+.header-bottom {
+  align-items: flex-start;
+}
+
+.header-search {
+  width: 100%;
+  height: 35%;
+}
+.search{
+  font-size: larger;
+  color: #d65108;
+}
+
+.header-search-upper,
+.maincontainermiddlelower {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-search-upperdiv {
+  width: 450px;
+  height: 70%;
+  display: flex;
+}
+
+.header-search-upperdivleft {
+  width: 90%;
+  height: 100%;
+}
+
+.header-search-upperdivright {
+  width: 10%;
+  height: 100%;
+  background-color: #d65108;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+
+.notfound {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d65108;
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  border: 2px solid #d65108;
+  padding-left: 1rem;
+  outline: none;
+}
+
+.fa {
+  color: white;
+}
+
+.maincontainerlower {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 30%;
+  height: 550px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0px 0px 3px;
+}
+
+.cardupper {
+  width: 100%;
+  height: 60%;
+}
+
+.cardlower {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 60%;
+  height: 30%;
+  border: none;
+  border-radius: 50px;
+  background-color: #d65108;
+}
+
+.temp {
+  position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipecard {
+  width: 500px;
+  height: 500px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d65108;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px;
+}
+
+.cross,
+.recipecardname,
+.recipecardinput,
+.recipecardinstruction,
+.recipecardpara,
+.recipecardimg,
+.recipecardvideo {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+.recipecardvideo a:active{
+  color: white;
+}
+.recipecardvideo a:visited{
+  color: white;
+}
+.recipecardvideo a:link{
+  color: white;
+}
+
+.cross {
+  justify-content: flex-end;
+}
+
+.fa-times {
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.cross button {
+  border-radius: 50%;
+  border: none;
+}
+
+img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.recipecardimg img {
+  border-radius: 50%;
+}
+
+.recipecardinput {
+  width: fit-content;
+  background-color: white;
+  color: #d65108;
+  border-radius: 10px;
+}
+
+.recipecardname {
+  padding-left: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.recipecardname,
+.recipecardpara {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+h1,
+p,
+h3 {
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 988px) and (min-width: 800px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  .card {
+    width: 90%;
+  }
+
+  .recipecard {
+    width: 300px;
+  }
+
+  .notfound {
+    width: 80%;
+    height: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    width: 80%;
+  }
+
+  .header-search-upperdiv {
+    width: 80%;
+  }
+}
+</style>
+</head>
+<body>
+    <div id="main" class="main">
+        <div class="header">
+            <div class="header-top">
+                <h1>Find Meals For Your Ingredients</h1>
+            </div>
+            <div class="header-mid">
+                <p>Real food doesn't have ingredients, real food is ingredients.</p>
+            </div>
+            <div class="header-bottom">
+                <p><i>- Jamie Oliver</i></p> 
+            </div>
+        </div>
+        <div class="header-search">
+            <div class="header-search-upper">
+                <div class="header-search-upperdiv">
+                    <div class="header-search-upperdivleft">
+                        <input class="search" type="search" name="" id="input" placeholder="Enter an ingredient">
+                    </div>
+                    <div class="header-search-upperdivright">
+                        <i onclick="search()" class="fa fa-search fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="maincontainermiddlelower">
+                <h1>Your Search Results:</h1>
+            </div>
+        </div>
+        <div id="maincontainerlower" class="maincontainerlower"></div>
+        <div id="temp" class="temp"></div>
+    </div>
+</body>
+</html>
