@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function x(){
+        //     var a=10;
+        //     var b=100
+        //     function y(){
+        //         console.log(a);
+        //         console.log(b);
+        //         console.log(c);
+        //     }
+        //     var c=1000
+        //     return y
+        // }
+        // let ans = x()
+        // console.log(ans);
+
+        // ans()
+        // ans forms a closure , because it has acess to it's local scope + its parent scope
+
+        // function x(){
+        //     var a=7
+        //     function y(){
+        //         console.log(a);
+        //     }
+        //     a=100;
+        //     return y
+        // }
+        // var z=x();
+        // console.log(z);
+        // z()
+
+        // for (var index = 1; index <= 5; index++) {
+        //     setTimeout(function () {
+        //         index+=100
+        //         console.log(index);
+        //     },index*1000)
+            
+            
+        // }
+
+        // for (var i=0; i<=5; i++) {
+        // setTimeout(function(){
+        //  console.log(i)
+        // }(i), i*1000)
+        // }
+
+
+        for(var i=1;i<=5;i++){
+    
+    setTimeout(function a(){
+        i +=10
+        console.log(Math.floor(i/10))
+    })
+}
+        // for (var index = 1; index <= 5; index++) {
+            
+        //         console.log(index);
+            
+            
+            
+        // }
+    </script>
+</body>
+</html>

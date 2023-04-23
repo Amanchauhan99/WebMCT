@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call
+        let player1={
+            fname:"rahul",
+            lname:"dravid",
+            welcome:function(){
+            console.log(this.fname + this.lname);
+            }
+        }
+        player1.welcome()
+
+        let player2={
+            fname:"sachin",
+            lname:"tendulkar",
+        }
+
+        player1.welcome.call(player2)
+
+        let player3={
+            fname:"kapil",
+            lname:"dev",
+        }
+
+        function welcome(email,age){
+            console.log(`${this.fname}  ${this.lname}
+email- ${email}
+age ${age}` 
+            );
+        }
+
+        // welcome.call(player2)
+        // welcome.call(player3)
+
+
+        // apply
+        welcome.apply(player3,["khbciabiwe@gmail.com",60])
+
+        // bind
+        // in bind method "this" keyword gets binded to obj of our choice and returns a function which can be called later on.
+
+        let welcomeSachin=welcome.bind(player2)
+        welcomeSachin();//welcome fn is called
+
+        // polyfill for bind
+
+        let car={
+            name:"scorpio",
+            brand:"mahindra",
+
+        }
+        let cardescription=function(date,price){
+            console.log(`i bought a new ${this.brand} ${this.name}`);
+        }
+        // assume i do not have a bind function
+        // var bindedfn=cardescription.bind(car)
+
+        // prototype is an obj which contains method and properties
+
+        Function.prototype.greet=function(arg){
+            let fn=this
+            return function () {
+                console.log("hello");
+                fn.call(arg)
+            }
+        
+        }
+        var greetfn=cardescription.greet(car)
+        greetfn()
+
+        // array destructuring
+        let obj={
+            name:"aman",
+            profession:"engineer",
+            age:23,
+            hobby:"music"
+        }
+        let{name,age}=obj
+        console.log(name);
+        console.log(age);
+
+        // let fruit=["grapes","apple","banana","mango"]
+        // let[fruit1,fruit2,,fruit3]=fruit
+        // console.log(fruit1);
+        // console.log(fruit3);
+
+        // spread operators
+
+        let fruit=["grapes","apple","banana","mango"]
+        let allfruits=["papaya","kiwi","pineapple",...fruit]
+        console.log(allfruits);
+
+        userprofile("aman","chauhan",24,"engineer")
+        function userprofile(...arg){ //rest
+
+            if (arg="hj") {
+                console.log(...arg);
+            }
+            // console.log(...arg); //spread
+        }
+
+        let fullname="aman chauhan"
+        let [...firstletter]=fullname
+        console.log(firstletter);
+        let[firstword]=fullname.split(" ")
+        console.log(firstword);
+
+        let obbj={
+            name:"aman"
+        }
+        console.log(obbj["name"]);
+
+        // how to write shortes arrow function
+        let arrow=name => "hello "+name
+        // return arrow
+
+        console.log(arrow("aman"))
+
+        var a
+        console.log(a);
+        a=10
+     </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        #result {
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 50px;
+        }
+      </style>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+      const generateRandomNumber = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+            if (randomNumber) {
+              resolve(randomNumber);
+            } else {
+              reject('Unable to generate random number.');
+            }
+          }, 1000);
+        });
+      };
+
+      generateRandomNumber()
+        .then((result) => {
+          const resultElement = document.getElementById('result');
+          resultElement.innerHTML = `The random number is ${result}.`;
+        })
+        .catch((error) => console.error(error));
+    </script>
+</body>
+</html>
