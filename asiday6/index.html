@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const num = 19;
+
+console.log("square root" + num + " is " + Math.sqrt(num));
+
+const randomNum = Math.round(Math.random() * 10);
+console.log("random number between 0 and 10 " + randomNum);
+
+const today = new Date();
+console.log("The current date and time is " + today);
+
+console.log("current year " + today.getFullYear());
+console.log("current month " + (today.getMonth() + 1));
+console.log("current day of the month" + today.getDate());
+console.log("current day of the week " + today.getDay());
+
+today.setFullYear(2025);
+today.setMonth(11);
+today.setDate(31);
+
+console.log("updated year " + today.getFullYear());
+console.log("updated month " + (today.getMonth() + 1));
+console.log("updated day of the month: " + today.getDate());
+
+const birthday = new Date("1990-07-20"); 
+
+const millisecondsDiff = today.getTime() - birthday.getTime();
+console.log("milliseconds b/w birthday and today" + millisecondsDiff);
+
+const daysDiff = Math.round(millisecondsDiff / (1000 * 60 * 60 * 24));
+console.log("number of days b/w my birthday and today " + daysDiff);
+
+
+
+    </script>
+</body>
+</html>
