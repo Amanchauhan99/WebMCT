@@ -28,27 +28,45 @@
             // console.log( productId)
             let request =await fetch(`https://randomuser.me/api/?results=1`)
             let data= await request.json()
-            renderProduct(data)
             console.log(data);
+            renderProduct(data)
+            
             // console.log(picture.large);
         }
         
         getproduct()
         
-        //function renderProduct({results:{name,phone,location}}){
-          function renderProduct(data){
-             console.log(JSON.parse(data));
+        function renderProduct({results}){
+            
+            var img = results[0].picture.large;
+            // async function pict(){
+            //     console.log(results[0].picture.large);
+            //     let pic= await fetch(`${results[0].picture.large}`)
+            //     let res=await pic.json()
+            //     console.log(res);
+            // }
+            
+            
+
+           var title= results[0].name.title
+           var first= results[0].name.first
+           var last= results[0].name.last
+            console.log(title);
+            console.log(first);
+            console.log(last);
+            results[0]={name}
             let cardele=document.querySelector(".card")
             cardele.innerHTML+=`<div class="card-body">
-        <img src="" class="card-img-top product-img" alt="..." style="height: 350px;">
-          <h5 class="card-title">${name}</h5>
-          <p class="card-text">${phone}</p>
-        //   <p class="card-rating">No. of rating </p>
-        //   <p class="card-rating">No. of pepole rate </p>
+        <img src=${img} class="card-img-top product-img" alt="..." style="height: 350px; width:260px">
+          <h5 class="card-title">${title} ${first} ${last}</h5>
+          <p class="card-text"></p>
+           <p class="card-rating">No. of rating </p>
+           <p class="card-rating">No. of pepole rate </p>
           <a href="#" class="btn btn-primary">add to cart</a>
         
       </div>`
-        }
+        
+    }
     </script>
 </body>
 </html>
