@@ -5,9 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
     <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+        .card{
+            /* border: 2px solid red; */
+            background-color: rgba(84, 128, 18, 0.804);
+            height: 99.9vh;
+            width: 99.9vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-body{
+            /* border: 2px solid green; */
+            background-color: cornsilk;
+            height: 60%;
+            width:70%;
+            display: flex;
+        }
+        .card-body1{
+            /* border: 2px solid darkgoldenrod; */
+            height: 100%;
+            width:30%;
+            display: flex;
+            align-items:flex-start;
+            justify-content:center;
+        }
+        .product-img{
+            /* border: 2px solid greenyellow; */
+            height: 35%;
+            width:50%;
+            border-radius: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-body2{
+            /* border: 2px solid darkgoldenrod; */
+            height: 100%;
+            width:70%;
+            
+        }
+        .card-title{
+            /* border: 2px solid greenyellow; */
+            font-size: 30px;
+            height: 5%;
+            width:100%;
+        }
+        .card-rating{
+            /* border: 2px solid greenyellow; */
+            height: 10%;
+            width:100%;
+        }
+        img{
+            border-radius: 70px;
+            margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
     <div class="card" ></div>
@@ -28,9 +84,9 @@
             // console.log( productId)
             let request =await fetch(`https://randomuser.me/api/?results=1`)
             let data= await request.json()
-            console.log(data);
-            renderProduct(data)
             
+            renderProduct(data)
+            console.log(data);
             // console.log(picture.large);
         }
         
@@ -39,32 +95,29 @@
         function renderProduct({results}){
             
             var img = results[0].picture.large;
-            // async function pict(){
-            //     console.log(results[0].picture.large);
-            //     let pic= await fetch(`${results[0].picture.large}`)
-            //     let res=await pic.json()
-            //     console.log(res);
-            // }
-            
-            
-
            var title= results[0].name.title
            var first= results[0].name.first
            var last= results[0].name.last
-            console.log(title);
-            console.log(first);
-            console.log(last);
+            var birthday=results[0].dob.age
+            var birthday2=results[0].dob.date
+             var email=results[0].email
+             var phone=results[0].phone
+             var location=results[0].location.country
             results[0]={name}
             let cardele=document.querySelector(".card")
             cardele.innerHTML+=`<div class="card-body">
-        <img src=${img} class="card-img-top product-img" alt="..." style="height: 350px; width:260px">
+        <div class="card-body1">
+        <div class="product-img"><img src="${img}" class="card-img-top " alt="..."></div>
+    </div>
+    <div class="card-body2">
           <h5 class="card-title">${title} ${first} ${last}</h5>
-          <p class="card-text"></p>
-           <p class="card-rating">No. of rating </p>
-           <p class="card-rating">No. of pepole rate </p>
-          <a href="#" class="btn btn-primary">add to cart</a>
-        
-      </div>`
+          <p class="card-rating">${birthday2} (${birthday}years)</p>
+          <p class="card-rating">${email}</p>
+           <p class="card-rating">${phone}</p>
+           <p class="card-rating">${location}</p>
+          <a href="#" class="btn btn-primary"></a>
+        </div>
+    </div>`
         
     }
     </script>
