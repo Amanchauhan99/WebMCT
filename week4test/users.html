@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+</head>
+<body>
+    <div class="card" ></div>
+    <script>
+          async function getproduct(){
+            const url=window.location.href
+            const urlobj=new URL(url)
+            const params=new URLSearchParams
+            (urlobj.search)
+            // console.log(params);
+            // console.log(id);
+            // console.log(params.has('id'));
+            // if (params.has('id')) {
+            //     return ;
+            // }
+            
+            // let productId=params.get('id')
+            // console.log( productId)
+            let request =await fetch(`https://randomuser.me/api/?results=1`)
+            let data= await request.json()
+            renderProduct(data)
+            console.log(data);
+            // console.log(picture.large);
+        }
+        
+        getproduct()
+        
+        //function renderProduct({results:{name,phone,location}}){
+          function renderProduct(data){
+             console.log(JSON.parse(data));
+            let cardele=document.querySelector(".card")
+            cardele.innerHTML+=`<div class="card-body">
+        <img src="" class="card-img-top product-img" alt="..." style="height: 350px;">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${phone}</p>
+        //   <p class="card-rating">No. of rating </p>
+        //   <p class="card-rating">No. of pepole rate </p>
+          <a href="#" class="btn btn-primary">add to cart</a>
+        
+      </div>`
+        }
+    </script>
+</body>
+</html>
