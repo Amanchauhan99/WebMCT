@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="userDetailMainTag"></div>
+    <script>
+         async function userdetail(){
+            const url=window.location.href
+            const urlobj=new URL(url)
+            const params=new URLSearchParams
+            (urlobj.search)
+            console.log(params);
+
+            let userinfo=params.get('id')
+            console.log( params.get('id'))
+
+            let req=await fetch(`https://api.github.com/users/${userinfo}`)
+                let res=await req.json()
+                renderUser(res)
+                console.log(res);
+         }
+         userdetail()
+         async function repoDetail(login){
+            let req= await fetch(`https://api.github.com/users/${login}/repos`)
+            let res=await req.json()
+            // console.log(res[0].html_url);
+            return res
+         }
+         
+         function renderUser({avatar_url,followers,following,public_repos,location,login,id,html_url,url}){
+    
+    repoDetail(login).then(data=>{cardele=document.querySelector(".userDetailMainTag")
+    // console.log(typeof(data));
+    console.log(data[0]);
+    console.log(url);
+    if (data=="") {
+        alert("enter valid user")
+    }else{
+    let url=data[1].html_url
+    // console.log(data[1]);
+    // console.log(id);
+        let git_repo=url.split("/")
+        let git_repo_name=git_repo[git_repo.length-1]
+    
+        // console.log(s);
+            cardele.innerHTML+=`<div class="userTag">My Github Profile</div>
+        <div class="user-contants">
+            <div class="user-contants-main">
+                <div class="user-contants-left"><div class="pro"> <img src="${avatar_url}" alt="" height="140px" width="150px" style=" border-radius: 100%;"></div></div>
+                <div class="user-contants-right">
+                    <div class="user-contants-right1">${login}</div>
+                    <div class="user-contants-right2">
+                        <div class="blocks" style="background-color: blueviolet;">Respo: ${public_repos}</div>
+                        <div class="blocks" style="background-color: rgb(238, 180, 216);">following: ${following}</div>
+                        <div class="blocks" style="background-color: skyblue;">follower: ${followers}</div>
+                    </div>
+                    <div class="user-contants-right3">
+                        <div class="user-contants-right3-block">${location}</div>
+                    </div>
+                    <div class="user-contants-right4">
+                        <div class="user-contants-right4-block">view profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="repo">Repositories (${public_repos})</div>
+    <div class="repositorys">
+    <div class="repo-details"> 
+        <div class="repo-details1">
+            <div class="git_repo_name">${git_repo_name}</div>
+            <div class="mar">
+            <a class="git_repo_link" href="${url}"><div class=""> View Repo</div></a>
+            <div class="git_repo_live"> Live Demo</div>
+        </div>
+            
+        </div>
+        <div class="repo-details2"></div>
+    </div>
+    </div>`
+    }
+});
+        }
+        
+    </script>
+</body>
+</html>
