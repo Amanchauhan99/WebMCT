@@ -162,7 +162,7 @@ body{
 .blocks{
     /* border: 2px solid rgb(20, 66, 134); */
     height: 40%;
-    width: 100%; 
+    width: 120%; 
     margin: 20px;
     border-radius: 10px;
     color: aliceblue;
@@ -205,7 +205,7 @@ body{
 .user-contants-right3-block{
     /* border: 2px solid rgb(20, 66, 134); */
     height: 100%;
-    width: 40%;
+    width: 50%;
     color: aliceblue;
     display: flex;
     justify-content: center;
@@ -254,7 +254,7 @@ a{
     /* border: 2px solid black; */
     color: rgb(252, 252, 252);
     height: 70%;
-    width: 45%;
+    width: 55%;
     margin: 10px;
     
 }
@@ -262,7 +262,7 @@ a{
     border: 2px solid black;
     font-size: 15px;
     height: 60%;
-    width: 85%;
+    width: 95%;
     margin: 10px;
     /* font-size: large; */
     display: flex;
